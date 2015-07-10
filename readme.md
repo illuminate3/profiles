@@ -1,22 +1,17 @@
-# Core II : Laravel 5.1.x Beta Development
+# Profiles : Laravel 5.1.x Beta Development
 
 
 ## Functionality
 
 
-### Locales
+### Profiles
 Supplements the main Rakko app's locale functionality.
 Ability to control Locales through the database.
 
 
-### Settings
-Settings allow you to set key/values to the database or to a .json file
-
-
 ## Routes
 
-* /admin/locales
-* /admin/settings
+* /admin/profiles
 
 
 ## Packages

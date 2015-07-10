@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Modules\Profiles\Http\Controllers;
 
 use App\Modules\Profiles\HttpModels\Profile;
@@ -15,7 +16,9 @@ use Auth;
 use Datatables;
 use Flash;
 
+
 class ProfilesController extends ProfileController {
+
 
 	/**
 	 * The UserRepository instance.
@@ -225,5 +228,6 @@ dd("store");
 
 			->make(true);
 	}
+
 
 }

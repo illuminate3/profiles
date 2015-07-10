@@ -41,3 +41,9 @@ Route::group(['prefix' => 'admin'], function() {
 
 });
 // --------------------------------------------------------------------------
+
+Route::group(['prefix' => 'profiles'], function() {
+	Route::get('/', function() {
+		dd('This is the Profiles module index page.');
+	});
+});

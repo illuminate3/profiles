@@ -1,14 +1,18 @@
 <?php
+
 namespace App\Modules\Profiles\HttpRepositories;
 
 use App\Modules\Kagi\HttpModels\User;
 use App\Modules\Profiles\HttpModels\Profile;
 
-use Hash, DB, Auth;
+use Auth;
 use DateTime;
-//use File, Auth;
+user DB;
+use Hash;
+
 
 class ProfileRepository extends BaseRepository {
+
 
 	/**
 	 * The User instance.

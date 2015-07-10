@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Modules\Profiles\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-//use Config;
+
 
 class ProfileCreateRequest extends FormRequest {
+
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -32,5 +34,6 @@ class ProfileCreateRequest extends FormRequest {
 //			'password_confirmation'			=> 'required_with:password'
 		];
 	}
+
 
 }

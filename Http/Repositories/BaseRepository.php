@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Modules\Profiles\HttpRepositories;
 
+
 abstract class BaseRepository {
+
 
 	/**
 	 * The Model instance.
@@ -42,5 +45,6 @@ abstract class BaseRepository {
 //dd($this->model);
 		return $this->model->find($id);
 	}
+
 
 }
