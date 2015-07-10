@@ -1,0 +1,7 @@
+{
+	"name": "Profiles",
+	"slug": "profiles",
+	"version": "1.0",
+	"description": "This is the description for the Profiles module.",
+	"enabled": true
+}
