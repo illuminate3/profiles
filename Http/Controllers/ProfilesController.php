@@ -1,10 +1,10 @@
 <?php
 namespace App\Modules\Profiles\Http\Controllers;
 
-use App\Modules\Profiles\Http\Domain\Models\Profile;
-use App\Modules\Profiles\Http\Domain\Repositories\ProfileRepository;
-use App\Modules\Kagi\Http\Domain\Models\User;
-use App\Modules\Kagi\Http\Domain\Repositories\UserRepository;
+use App\Modules\Profiles\HttpModels\Profile;
+use App\Modules\Profiles\HttpRepositories\ProfileRepository;
+use App\Modules\Kagi\HttpModels\User;
+use App\Modules\Kagi\HttpRepositories\UserRepository;
 
 use Illuminate\Http\Request;
 use App\Modules\Profiles\Http\Requests\ProfileCreateRequest;
@@ -20,22 +20,22 @@ class ProfilesController extends ProfileController {
 	/**
 	 * The UserRepository instance.
 	 *
-	 * @var App\Modules\Kagi\Http\Domain\Repositories\UserRepository
+	 * @var App\Modules\Kagi\HttpRepositories\UserRepository
 	 */
 	protected $user;
 
 	/**
 	 * The RoleRepository instance.
 	 *
-	 * @var App\Modules\Profiles\Http\Domain\Repositories\ProfileRepository
+	 * @var App\Modules\Profiles\HttpRepositories\ProfileRepository
 	 */
 	protected $profile;
 
 	/**
 	 * Create a new UserController instance.
 	 *
-	 * @param  App\Modules\Kagi\Http\Domain\Repositories\UserRepository $user
-	 * @param  App\Modules\Profiles\Http\Domain\Repositories\ProfileRepository $profile
+	 * @param  App\Modules\Kagi\HttpRepositories\UserRepository $user
+	 * @param  App\Modules\Profiles\HttpRepositories\ProfileRepository $profile
 	 * @return void
 	 */
 	public function __construct(

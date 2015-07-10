@@ -6,8 +6,8 @@ use App\Modules\Profiles\Events\ProfileWasDeleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 
-use App\Modules\Profiles\Http\Domain\Models\Profile;
-use App\Modules\Profiles\Http\Domain\Repositories\ProfileRepository;
+use App\Modules\Profiles\HttpModels\Profile;
+use App\Modules\Profiles\HttpRepositories\ProfileRepository;
 
 
 class DeleteProfile {

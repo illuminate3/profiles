@@ -1,8 +1,8 @@
 <?php
-namespace App\Modules\Profiles\Http\Domain\Models;
+namespace App\Modules\Profiles\HttpModels;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Modules\Kagi\Http\Domain\Models\User;
+use App\Modules\Kagi\HttpModels\User;
 
 use Laracasts\Presenter\PresentableTrait;
 
@@ -51,7 +51,7 @@ class Profile extends Model {
 // DEFINE Relationships --------------------------------------------------
 	public function user()
 	{
-		return $this->belongsTo('App\Modules\Kagi\Http\Domain\Models\User');
+		return $this->belongsTo('App\Modules\Kagi\HttpModels\User');
 	}
 
 
