@@ -1,14 +1,20 @@
 <?php
+
 namespace App\Modules\Profiles\Providers;
+
+use Illuminate\Support\ServiceProvider;
 
 use App;
 use Config;
 use Lang;
+use Theme;
 use View;
-use Illuminate\Support\ServiceProvider;
+
 
 class ProfilesServiceProvider extends ServiceProvider
 {
+
+
 	/**
 	 * Register the Profiles module service provider.
 	 *
