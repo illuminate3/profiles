@@ -2,9 +2,9 @@
 
 namespace App\Modules\Profiles\Http\Controllers;
 
-use App\Modules\Profiles\HttpModels\Profile;
+use App\Modules\Profiles\Http\Models\Profile;
 use App\Modules\Profiles\HttpRepositories\ProfileRepository;
-use App\Modules\Kagi\HttpModels\User;
+use App\Modules\Kagi\Http\Models\User;
 use App\Modules\Kagi\HttpRepositories\UserRepository;
 
 use Illuminate\Http\Request;

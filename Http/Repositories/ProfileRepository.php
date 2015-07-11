@@ -2,8 +2,8 @@
 
 namespace App\Modules\Profiles\HttpRepositories;
 
-use App\Modules\Kagi\HttpModels\User;
-use App\Modules\Profiles\HttpModels\Profile;
+use App\Modules\Kagi\Http\Models\User;
+use App\Modules\Profiles\Http\Models\Profile;
 
 use Auth;
 use DateTime;
@@ -17,22 +17,22 @@ class ProfileRepository extends BaseRepository {
 	/**
 	 * The User instance.
 	 *
-	 * @var App\Modules\Kagi\HttpModels\User
+	 * @var App\Modules\Kagi\Http\Models\User
 	 */
 	protected $user;
 
 	/**
 	 * The Role instance.
 	 *
-	 * @var App\Modules\Profiles\HttpModels\Profile
+	 * @var App\Modules\Profiles\Http\Models\Profile
 	 */
 	protected $profile;
 
 	/**
 	 * Create a new UserRepository instance.
 	 *
-   	 * @param  App\Modules\Kagi\HttpModels\User $user
-	 * @param  App\Modules\Profiles\HttpModels\Profile $profile
+   	 * @param  App\Modules\Kagi\Http\Models\User $user
+	 * @param  App\Modules\Profiles\Http\Models\Profile $profile
 	 * @return void
 	 */
 	public function __construct(

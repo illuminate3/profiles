@@ -2,7 +2,7 @@
 namespace App\Modules\Profiles\HttpModels;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Modules\Kagi\HttpModels\User;
+use App\Modules\Kagi\Http\Models\User;
 
 use Laracasts\Presenter\PresentableTrait;
 
@@ -51,7 +51,7 @@ class Profile extends Model {
 // DEFINE Relationships --------------------------------------------------
 	public function user()
 	{
-		return $this->belongsTo('App\Modules\Kagi\HttpModels\User');
+		return $this->belongsTo('App\Modules\Kagi\Http\Models\User');
 	}
 
 

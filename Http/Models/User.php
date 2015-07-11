@@ -2,9 +2,9 @@
 namespace App\Modules\Profiles\HttpModels;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Modules\Kagi\HttpModels\User;
+use App\Modules\Kagi\Http\Models\User;
 
-class User extends App\Modules\Kagi\HttpModels\User {
+class User extends App\Modules\Kagi\Http\Models\User {
 
 	/**
 	 * The database table used by the model.
@@ -18,7 +18,7 @@ class User extends App\Modules\Kagi\HttpModels\User {
 // DEFINE Relationships --------------------------------------------------
 	public function profile()
 	{
-		return $this->hasOne('App\Modules\Profiles\HttpModels\Profile');
+		return $this->hasOne('App\Modules\Profiles\Http\Models\Profile');
 	}
 
 
