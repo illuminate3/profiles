@@ -1,5 +1,5 @@
 <?php
-namespace App\Modules\Profiles\HttpModels;
+namespace App\Modules\Profiles\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Modules\Kagi\Http\Models\User;
