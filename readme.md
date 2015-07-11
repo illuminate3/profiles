@@ -1,4 +1,13 @@
-# Profiles : Laravel 5.1.x Beta Development
+# Profiles : Laravel 5.1.x
+
+
+## Status / Version
+
+Beta Development
+
+
+## Description
+
 
 
 ## Functionality
@@ -16,45 +25,9 @@ Ability to control Locales through the database.
 
 ## Packages
 
-
-* https://github.com/illuminate3/kotoba
-```
-"illuminate3/kotoba": "dev-master",
-Illuminate3\Kotoba\KotobaServiceProvider::class,
-```
+Intended to be used with:
+https://github.com/illuminate3/rakkoII
 
 
-* https://github.com/vinkla/translator
-```
-'Vinkla\Translator\TranslatorServiceProvider'
-vendor:publish --provider="Vinkla\Translator\TranslatorServiceProvider"
-```
-
-
-* https://github.com/anlutro/laravel-settings
-```
-composer require anlutro/l4-settings
-anlutro\LaravelSettings\ServiceProvider::class,
-'Setting' => 'anlutro\LaravelSettings\Facade'
-```
-
-```
-vendor:publish --provider="anlutro\LaravelSettings\ServiceProvider"
-```
-
-* https://github.com/laracasts/Presenter
-```
-"laracasts/presenter": "dev-master"
-```
-
-
+## Screen Shots
 ## Thanks
-
-
-*
-
-
-## Partial Code or Ideas
-
-
-* https://github.com/mcamara/laravel-localization/blob/master/src/config/config.php
