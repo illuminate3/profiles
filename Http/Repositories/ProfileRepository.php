@@ -21,12 +21,14 @@ class ProfileRepository extends BaseRepository {
 	 */
 	protected $user;
 
+
 	/**
 	 * The Role instance.
 	 *
 	 * @var App\Modules\Profiles\Http\Models\Profile
 	 */
 	protected $profile;
+
 
 	/**
 	 * Create a new UserRepository instance.
@@ -44,6 +46,7 @@ class ProfileRepository extends BaseRepository {
 		$this->profile = $profile;
 	}
 
+
 	/**
 	 * Get user collection.
 	 *
@@ -52,15 +55,12 @@ class ProfileRepository extends BaseRepository {
 	 */
 	public function show($id)
 	{
-//		$profile = $this->profile->find($id);
-//		$profile = $this->profile->with('user')->find($id);
-//		$profile = $this->getProfile($id)->with('user');
-//		$profile = $this->getProfile($id);
 		$profile = $this->profile->find($id);
 
 //dd($id);
 		return compact('profile');
 	}
+
 
 	/**
 	 * Get user collection.
@@ -76,6 +76,7 @@ class ProfileRepository extends BaseRepository {
 		return compact('profile');
 	}
 
+
 	/**
 	 * Get all models.
 	 *
@@ -87,6 +88,7 @@ class ProfileRepository extends BaseRepository {
 		$this->model = new User;
 		$this->model->create($input);
 	}
+
 
 	/**
 	 * Update a role.
@@ -153,6 +155,9 @@ class ProfileRepository extends BaseRepository {
 	}
 
 
+// Functions ---------------------------------------------------------------
+
+
 	public function checkProfileExists($email)
 	{
 //dd($email);
@@ -163,6 +168,7 @@ class ProfileRepository extends BaseRepository {
 
 		return $profile;
 	}
+
 
 	/**
 	 * @param $data
@@ -180,6 +186,7 @@ class ProfileRepository extends BaseRepository {
 			]);
 		}
 	}
+
 
 	/**
 	 * @param $data
@@ -201,6 +208,7 @@ class ProfileRepository extends BaseRepository {
 		}
 	}
 
+
 	public function getProfile($id)
 	{
 		$profile = DB::table('profiles')
@@ -210,6 +218,7 @@ class ProfileRepository extends BaseRepository {
 
 		return $profile;
 	}
+
 
 	public function getUserID($id)
 	{

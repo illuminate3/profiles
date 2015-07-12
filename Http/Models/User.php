@@ -1,10 +1,13 @@
 <?php
+
 namespace App\Modules\Profiles\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Modules\Kagi\Http\Models\User;
 
+
 class User extends App\Modules\Kagi\Http\Models\User {
+
 
 	/**
 	 * The database table used by the model.
@@ -13,13 +16,21 @@ class User extends App\Modules\Kagi\Http\Models\User {
 	 */
 	protected $table = 'users';
 
-// DEFINE Fillable -------------------------------------------------------
 
-// DEFINE Relationships --------------------------------------------------
+// Presenter ---------------------------------------------------------------
+// Translation Model -------------------------------------------------------
+// Hidden ------------------------------------------------------------------
+// Fillable ----------------------------------------------------------------
+
+
+// Relationships -----------------------------------------------------------
 	public function profile()
 	{
 		return $this->hasOne('App\Modules\Profiles\Http\Models\Profile');
 	}
+
+
+// Functions ---------------------------------------------------------------
 
 
 }

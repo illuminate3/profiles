@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Modules\Profiles\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -6,9 +7,12 @@ use App\Modules\Kagi\Http\Models\User;
 
 use Laracasts\Presenter\PresentableTrait;
 
+
 class Profile extends Model {
 
+
 	use PresentableTrait;
+
 
 	/**
 	 * The database table used by the model.
@@ -17,16 +21,18 @@ class Profile extends Model {
 	 */
 	protected $table = 'profiles';
 
+
+// Presenter ---------------------------------------------------------------
 	protected $presenter = 'App\Modules\Kagi\Http\Presenters\Profile';
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
+
+// Translation Model -------------------------------------------------------
+
+
+// Hidden ------------------------------------------------------------------
 //	protected $hidden = ['password', 'remember_token'];
 
-// DEFINE Fillable -------------------------------------------------------
+// Fillable ----------------------------------------------------------------
 	protected $fillable = [
 		'user_id',
 		'first_name',
@@ -48,11 +54,14 @@ class Profile extends Model {
 		];
 
 
-// DEFINE Relationships --------------------------------------------------
+// Relationships -----------------------------------------------------------
 	public function user()
 	{
 		return $this->belongsTo('App\Modules\Kagi\Http\Models\User');
 	}
+
+
+// Functions ---------------------------------------------------------------
 
 
 }

@@ -17,9 +17,14 @@ Route::resource('profiles', 'ProfilesController');
 
 // Controllers
 
-Route::get('welcome/profiles', array(
-	'uses'=>'ProfileController@welcome'
-	));
+
+Route::group(['prefix' => 'profiles'], function() {
+	Route::get('welcome', [
+		'uses'=>'ProfileController@welcome'
+	]);
+});
+
+
 
 // API DATA
 Route::get('api/profiles', array(
@@ -41,9 +46,3 @@ Route::group(['prefix' => 'admin'], function() {
 
 });
 // --------------------------------------------------------------------------
-
-Route::group(['prefix' => 'profiles'], function() {
-	Route::get('/', function() {
-		dd('This is the Profiles module index page.');
-	});
-});
