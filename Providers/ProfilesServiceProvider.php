@@ -37,7 +37,6 @@ class ProfilesServiceProvider extends ServiceProvider
 	 */
 	protected function registerNamespaces()
 	{
-//		Lang::addNamespace('profiles', realpath(__DIR__.'/../Resources/Lang'));
 		View::addNamespace('profiles', realpath(__DIR__.'/../Resources/Views'));
 	}
 
@@ -49,32 +48,25 @@ class ProfilesServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		$this->publishes([
-			__DIR__ . '/../Config/profiles.php' => config_path('profiles.php'),
-// 			__DIR__ . '/../Publish/assets/vendors' => base_path('public/assets/vendors/'),
-// 			__DIR__ . '/../Publish/Plugins' => base_path('app/Plugins/'),
-// 			__DIR__ . '/../Publish/views/plugins/' => base_path('resources/views/plugins/'),
-		]);
-/*
-		$this->publishes([
-			__DIR__ . '/../Publish/assets/vendors' => base_path('public/assets/vendors/'),
-		], 'js');
 
 		$this->publishes([
-			__DIR__ . '/../Publish/Plugins' => base_path('app/Plugins/'),
-		], 'plugins');
-*/
+			__DIR__ . '/../Config/profile.php' => config_path('profile.php'),
+			__DIR__ . '/../Resources/Assets/Images' => base_path('public/assets/images/'),
+			__DIR__ . '/../Resources/Views/' => public_path('themes/') . Theme::getActive() . '/views/modules/origami/',
+		]);
+
+
+		$this->publishes([
+			__DIR__.'/../Config/profile.php' => config_path('profile.php'),
+		], 'configs');
+
+		$this->publishes([
+			__DIR__ . '/../Resources/Assets/Images' => base_path('public/assets/images/'),
+		], 'images');
 
 		$this->publishes([
 			__DIR__ . '/../Resources/Views/' => public_path('themes/') . Theme::getActive() . '/views/modules/origami/',
 		], 'views');
-
-/*
-		AliasLoader::getInstance()->alias(
-			'Menu',
-			'Menu\Menu'
-		);
-*/
 
 	}
 
@@ -89,7 +81,6 @@ class ProfilesServiceProvider extends ServiceProvider
 		$app = $this->app;
 
 		$app->register('App\Modules\Profiles\Providers\RouteServiceProvider');
-//		$app->register('Menu\MenuServiceProvider');
 	}
 
 

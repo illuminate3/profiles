@@ -20,7 +20,14 @@
 
 	<div class="container">
 		<div class="content">
-			<div class="title">Profiles</div>
+			<a href="/">
+				<img src="/assets/images/usr.jpg">
+			</a>
+			<div class="title">
+				<a href="/">
+					Profiles
+				</a>
+			</div>
 			<div class="quote">
 				Profiles is a Rakko module that extends the ability to add User Profiles
 			</div>
