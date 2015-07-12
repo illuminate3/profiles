@@ -20,7 +20,7 @@ Ability to control Locales through the database.
 
 ## Routes
 
-* /admin/profiles
+* /profiles
 
 
 ## Install

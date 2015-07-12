@@ -27,12 +27,14 @@ class ProfilesController extends ProfileController {
 	 */
 	protected $user;
 
+
 	/**
 	 * The RoleRepository instance.
 	 *
 	 * @var App\Modules\Profiles\HttpRepositories\ProfileRepository
 	 */
 	protected $profile;
+
 
 	/**
 	 * Create a new UserController instance.
@@ -54,6 +56,7 @@ class ProfilesController extends ProfileController {
 //		$this->middleware('ajax', ['only' => 'updateSeen']);
 	}
 
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -61,9 +64,9 @@ class ProfilesController extends ProfileController {
 	 */
 	public function index()
 	{
-//dd("loaded");
-		return View('profiles::profiles.index');
+		return Theme::View('profiles::profiles.index');
 	}
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -72,10 +75,9 @@ class ProfilesController extends ProfileController {
 	 */
 	public function create()
 	{
-//dd("create");
-//		return view('kagi::users.create', $this->user->create());
-		return view('profiles::profiles.create');
+		return Theme::View('profiles::profiles.create');
 	}
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -110,7 +112,7 @@ dd("store");
 		$model = '$profile';
 //dd($this->profile->show($id));
 
-		return View('profiles::profiles.show',
+		return Theme::View('profiles::profiles.show',
 			$this->profile->show($id),
 				compact(
 					'modal_title',
@@ -122,6 +124,7 @@ dd("store");
 //		return View('profiles::profiles.show',  $this->profile->show($id));
 	}
 
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -132,7 +135,7 @@ dd("store");
 	{
 //dd($id);
 //dd(Auth::id());
-		if ( (Auth::id() == $id) || (Auth::user()->can('manage_admin')) || (Auth::user()->can('manage_profiles')) ) {
+		if ( ( Auth::id() != null ) && ((Auth::id() == $id) || (Auth::user()->can('manage_admin')) || (Auth::user()->can('manage_profiles'))) ) {
 //dd("edit");
 			$modal_title = trans('kotoba::general.command.delete');
 			$modal_body = trans('kotoba::general.ask.delete');
@@ -151,9 +154,10 @@ dd("store");
 				));
 //			return View('profiles::profiles.edit',  $this->profile->edit($id));
 		} else {
-			return View('profiles::profiles.index');
+			return Theme::View('profiles::profiles.index');
 		}
 	}
+
 
 	/**
 	 * Update the specified resource in storage.
@@ -172,6 +176,7 @@ dd("store");
 		Flash::success( trans('kotoba::account.success.update') );
 		return redirect('profiles/' . $id);
 	}
+
 
 	/**
 	 * Remove the specified resource from storage.
@@ -195,6 +200,7 @@ dd("store");
 		Flash::success( trans('kotoba::account.success.delete') );
 		return redirect('profiles');
 	}
+
 
 	/**
 	* Datatables data
