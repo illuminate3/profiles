@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="content">
 			<a href="/">
-				<img src="/assets/images/usr.jpg">
+				<img src="/assets/images/usr.png">
 			</a>
 			<div class="title">
 				<a href="/">

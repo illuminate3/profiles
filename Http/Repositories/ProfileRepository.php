@@ -7,7 +7,7 @@ use App\Modules\Profiles\Http\Models\Profile;
 
 use Auth;
 use DateTime;
-user DB;
+use DB;
 use Hash;
 
 

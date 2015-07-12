@@ -3,13 +3,16 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class CreateProfilesTable extends Migration {
+
 
 	public function __construct()
 	{
 		// Get the prefix
 		$this->prefix = Config::get('kagi.kagi_db.prefix', '');
 	}
+
 
 	/**
 	 * Run the migrations.
@@ -18,24 +21,8 @@ class CreateProfilesTable extends Migration {
 	 */
 	public function up()
 	{
-//		Schema::create('password_resets', function(Blueprint $table)
 		Schema::create($this->prefix . 'profiles', function(Blueprint $table)
 		{
-/*
-			$table->integer('employee_type_id')->nullable();
-			$table->string('department_id',100)->nullable();
-			$table->integer('position_id')->nullable();
-			$table->integer('secondary_position_id')->nullable();
-			$table->integer('job_title_id')->nullable();
-			$table->integer('secondary_job_title_id')->nullable();
-
-			$table->integer('isTeacher')->nullable();
-
-			$table->integer('supervisor_id')->nullable();
-			$table->integer('isSupervisior')->default(0);
-
-			$table->integer('status_id')->default(1);
-*/
 
 			$table->engine = 'InnoDB';
 			$table->increments('id');
@@ -61,12 +48,12 @@ class CreateProfilesTable extends Migration {
 //			$table->string('avatar',100)->nullable();
 			$table->text('notes')->nullable();
 
-
 			$table->softDeletes();
 			$table->timestamps();
 
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.
@@ -77,5 +64,6 @@ class CreateProfilesTable extends Migration {
 	{
 		Schema::drop($this->prefix . 'profiles');
 	}
+
 
 }

@@ -5,7 +5,7 @@ namespace App\Modules\Profiles\Http\Controllers;
 use App\Modules\Profiles\Http\Models\Profile;
 use App\Modules\Profiles\HttpRepositories\ProfileRepository;
 use App\Modules\Kagi\Http\Models\User;
-use App\Modules\Kagi\HttpRepositories\UserRepository;
+use App\Modules\Kagi\Http\Repositories\UserRepository;
 
 use Illuminate\Http\Request;
 use App\Modules\Profiles\Http\Requests\ProfileCreateRequest;
@@ -49,8 +49,8 @@ class ProfilesController extends ProfileController {
 		$this->user = $user;
 		$this->profile = $profile;
 // middleware
-		$this->middleware('auth');
-		$this->middleware('admin', ['only' => 'destroy']);
+// 		$this->middleware('auth');
+// 		$this->middleware('admin', ['only' => 'destroy']);
 //		$this->middleware('ajax', ['only' => 'updateSeen']);
 	}
 

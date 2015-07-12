@@ -16,6 +16,7 @@ class ProfileController extends Controller
 
 	use DispatchesJobs, ValidatesRequests;
 
+
 	/**
 	 * Initializer.
 	 *
@@ -29,8 +30,8 @@ class ProfileController extends Controller
 		$this->middleware('auth');
 */
 // middleware
-		$this->middleware('auth');
-		$this->middleware('admin');
+// 		$this->middleware('auth');
+// 		$this->middleware('admin');
 	}
 
 
@@ -41,18 +42,7 @@ class ProfileController extends Controller
 	 */
 	public function welcome()
 	{
-		return Theme::View('modules.core.general');
-	}
-
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return Theme::View('modules.core.landing');
+		return Theme::View('modules.profiles.welcome.profiles');
 	}
 
 
