@@ -15,6 +15,7 @@ use App\Modules\Profiles\Http\Requests\DeleteRequest;
 use Auth;
 use Datatables;
 use Flash;
+use Theme;
 
 
 class ProfilesController extends ProfileController {
@@ -45,11 +46,11 @@ class ProfilesController extends ProfileController {
 	 */
 	public function __construct(
 			UserRepository $user,
-			ProfileRepository $profile
+			ProfileRepository $profile_repo
 		)
 	{
 		$this->user = $user;
-		$this->profile = $profile;
+		$this->profile_repo = $profile_repo;
 // middleware
 // 		$this->middleware('auth');
 // 		$this->middleware('admin', ['only' => 'destroy']);
@@ -104,24 +105,24 @@ dd("store");
 	 */
 	public function show($id)
 	{
-//dd("show");
+		$profile = $this->profile_repo->show($id);
+
 		$modal_title = trans('kotoba::general.command.delete');
 		$modal_body = trans('kotoba::general.ask.delete');
 		$modal_route = 'profiles.destroy';
 		$modal_id = $id;
 		$model = '$profile';
-//dd($this->profile->show($id));
 
 		return Theme::View('profiles::profiles.show',
-			$this->profile->show($id),
 				compact(
+					'profile',
 					'modal_title',
 					'modal_body',
 					'modal_route',
 					'modal_id',
 					'model'
 			));
-//		return View('profiles::profiles.show',  $this->profile->show($id));
+//		return View('profiles::profiles.show',  $this->profile_repo->show($id));
 	}
 
 
@@ -144,7 +145,7 @@ dd("store");
 			$model = '$profile';
 
 			return View('profiles::profiles.edit',
-				$this->profile->edit($id),
+				$this->profile_repo->edit($id),
 					compact(
 						'modal_title',
 						'modal_body',
@@ -152,7 +153,7 @@ dd("store");
 						'modal_id',
 						'model'
 				));
-//			return View('profiles::profiles.edit',  $this->profile->edit($id));
+//			return View('profiles::profiles.edit',  $this->profile_repo->edit($id));
 		} else {
 			return Theme::View('profiles::profiles.index');
 		}
@@ -172,7 +173,7 @@ dd("store");
 		)
 	{
 //dd($request->password);
-		$this->profile->update($request->all(), $id);
+		$this->profile_repo->update($request->all(), $id);
 		Flash::success( trans('kotoba::account.success.update') );
 		return redirect('profiles/' . $id);
 	}
@@ -190,7 +191,7 @@ dd("store");
 		)
 	{
 //dd('destroy');
-//		$this->profile->destroy($id);
+//		$this->profile_repo->destroy($id);
 		$profile= Profile::find($id);
 //		$profile->roles()->detach();
 		$profile->delete();
