@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="content">
 			<a href="/">
-				<img src="/assets/images/usr.png">
+				<img src="/assets/images/usr.png" class="img-responsive">
 			</a>
 			<div class="title">
 				<a href="/">
