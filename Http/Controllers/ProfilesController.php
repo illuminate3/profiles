@@ -45,12 +45,14 @@ class ProfilesController extends ProfileController {
 	 * @return void
 	 */
 	public function __construct(
-			UserRepository $user,
-			ProfileRepository $profile_repo
+			Profile $profile,
+			ProfileRepository $profile_repo,
+			UserRepository $user
 		)
 	{
-		$this->user = $user;
+		$this->profile = $profile;
 		$this->profile_repo = $profile_repo;
+		$this->user = $user;
 // middleware
 // 		$this->middleware('auth');
 // 		$this->middleware('admin', ['only' => 'destroy']);
@@ -105,8 +107,9 @@ dd("store");
 	 */
 	public function show($id)
 	{
-		$profile = $this->profile_repo->show($id);
-
+		$profile = $this->profile_repo->find($id);
+//		$profile = $this->profile->find($id);
+dd($profile);
 		$modal_title = trans('kotoba::general.command.delete');
 		$modal_body = trans('kotoba::general.ask.delete');
 		$modal_route = 'profiles.destroy';
