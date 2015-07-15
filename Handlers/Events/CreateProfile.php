@@ -10,6 +10,9 @@ use Illuminate\Contracts\Queue\ShouldBeQueued;
 use App\Modules\Profiles\Http\Models\Profile;
 use App\Modules\Profiles\Http\Repositories\ProfileRepository;
 
+use App\Modules\Kagi\Http\Models\User;
+use App\Modules\Kagi\Http\Repositories\UserRepository;
+
 
 class CreateProfile {
 
@@ -20,10 +23,14 @@ class CreateProfile {
 	 * @return void
 	 */
 	public function __construct(
-			ProfileRepository $profileRepo
+			ProfileRepository $profile_repo,
+			User $user,
+			UserRepository $user_repo
 		)
 	{
-		$this->profileRepo = $profileRepo;
+		$this->profile_repo = $profile_repo;
+		$this->user = $user;
+		$this->user_repo = $user_repo;
 	}
 
 
@@ -36,7 +43,12 @@ class CreateProfile {
 	public function handle(ProfileWasCreated $data)
 	{
 		if ($data != null) {
-			$this->profileRepo->CreateProfile($data);
+
+			$new_user = $this->user_repo->getUserInfo($data->email);
+//dd($new_user);
+			$new_user = $this->user->find($new_user->id);
+
+			$this->profile_repo->CreateProfile($new_user);
 		}
 	}
 

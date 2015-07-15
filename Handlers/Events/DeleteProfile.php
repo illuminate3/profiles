@@ -20,10 +20,10 @@ class DeleteProfile {
 	 * @return void
 	 */
 	public function __construct(
-			ProfileRepository $profileRepo
+			ProfileRepository $profile_repo
 		)
 	{
-		$this->profileRepo = $profileRepo;
+		$this->profile_repo = $profile_repo;
 	}
 
 
@@ -36,7 +36,7 @@ class DeleteProfile {
 	public function handle(ProfileWasDeleted $data)
 	{
 		if ($data != null) {
-			$this->profileRepo->DeleteProfile($data);
+			$this->profile_repo->DeleteProfile($data);
 		}
 	}
 

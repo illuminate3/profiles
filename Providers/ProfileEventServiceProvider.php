@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Modules\Profiles\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
@@ -11,10 +12,14 @@ use App\Modules\Profiles\Handlers\Events\CreateProfile;
 use App\Modules\Profiles\Events\ProfileWasDeleted;
 use App\Modules\Profiles\Handlers\Events\DeleteProfile;
 
+use App\Modules\Kagi\Http\Models\User;
+
 use App;
 use Event;
 
+
 class ProfileEventServiceProvider extends EventServiceProvider {
+
 
 	/**
 	 * The event handler mappings for the application.
@@ -43,7 +48,14 @@ class ProfileEventServiceProvider extends EventServiceProvider {
 	public function boot(DispatcherContract $events)
 	{
 		parent::boot($events);
-		//
+
+		User::created(function ($user) {
+//dd($user);
+
+			\Event::fire(new ProfileWasCreated($user));
+
+		});
+
 	}
 
 	public function register()
