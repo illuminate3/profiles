@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 
 use App\Modules\Profiles\Http\Models\Profile;
-use App\Modules\Profiles\HttpRepositories\ProfileRepository;
+use App\Modules\Profiles\Http\Repositories\ProfileRepository;
 
 
 class CreateProfile {

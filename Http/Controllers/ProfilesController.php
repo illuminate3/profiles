@@ -3,7 +3,7 @@
 namespace App\Modules\Profiles\Http\Controllers;
 
 use App\Modules\Profiles\Http\Models\Profile;
-use App\Modules\Profiles\HttpRepositories\ProfileRepository;
+use App\Modules\Profiles\Http\Repositories\ProfileRepository;
 use App\Modules\Kagi\Http\Models\User;
 use App\Modules\Kagi\Http\Repositories\UserRepository;
 
@@ -24,7 +24,7 @@ class ProfilesController extends ProfileController {
 	/**
 	 * The UserRepository instance.
 	 *
-	 * @var App\Modules\Kagi\HttpRepositories\UserRepository
+	 * @var App\Modules\Kagi\Http\Repositories\UserRepository
 	 */
 	protected $user;
 
@@ -32,7 +32,7 @@ class ProfilesController extends ProfileController {
 	/**
 	 * The RoleRepository instance.
 	 *
-	 * @var App\Modules\Profiles\HttpRepositories\ProfileRepository
+	 * @var App\Modules\Profiles\Http\Repositories\ProfileRepository
 	 */
 	protected $profile;
 
@@ -40,8 +40,8 @@ class ProfilesController extends ProfileController {
 	/**
 	 * Create a new UserController instance.
 	 *
-	 * @param  App\Modules\Kagi\HttpRepositories\UserRepository $user
-	 * @param  App\Modules\Profiles\HttpRepositories\ProfileRepository $profile
+	 * @param  App\Modules\Kagi\Http\Repositories\UserRepository $user
+	 * @param  App\Modules\Profiles\Http\Repositories\ProfileRepository $profile
 	 * @return void
 	 */
 	public function __construct(
@@ -107,9 +107,9 @@ dd("store");
 	 */
 	public function show($id)
 	{
-		$profile = $this->profile_repo->find($id);
+		$profile = $this->profile_repo->show($id);
 //		$profile = $this->profile->find($id);
-dd($profile);
+//dd($profile);
 		$modal_title = trans('kotoba::general.command.delete');
 		$modal_body = trans('kotoba::general.ask.delete');
 		$modal_route = 'profiles.destroy';
@@ -141,6 +141,8 @@ dd($profile);
 //dd(Auth::id());
 		if ( ( Auth::id() != null ) && ((Auth::id() == $id) || (Auth::user()->can('manage_admin')) || (Auth::user()->can('manage_profiles'))) ) {
 //dd("edit");
+			$profile = $this->profile_repo->edit($id);
+//dd($profile);
 			$modal_title = trans('kotoba::general.command.delete');
 			$modal_body = trans('kotoba::general.ask.delete');
 			$modal_route = 'profiles.destroy';
@@ -148,8 +150,9 @@ dd($profile);
 			$model = '$profile';
 
 			return View('profiles::profiles.edit',
-				$this->profile_repo->edit($id),
+//				$this->profile_repo->edit($id),
 					compact(
+						'profile',
 						'modal_title',
 						'modal_body',
 						'modal_route',

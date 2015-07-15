@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Profiles\HttpRepositories;
+namespace App\Modules\Profiles\Http\Repositories;
 
 use App\Modules\Kagi\Http\Models\User;
 use App\Modules\Profiles\Http\Models\Profile;
@@ -55,10 +55,10 @@ class ProfileRepository extends BaseRepository {
 	 */
 	public function show($id)
 	{
-		$profile = $this->profile->find($id);
-
+//		$profile = $this->profile->find($id);
+//dd($profile->id);
+		$profile = $this->getUserProfile($id);
 		return $profile;
-//dd($id);
 //		return compact('profile');
 	}
 
@@ -71,10 +71,12 @@ class ProfileRepository extends BaseRepository {
 	 */
 	public function edit($id)
 	{
-		$profile = $this->profile->find($id);
+//dd($id);
+//		$profile = $this->profile->find($id);
+		$profile = $this->getUserProfile($id);
 //dd($profile);
-
-		return compact('profile');
+		return $profile;
+//		return compact('profile');
 	}
 
 
@@ -216,6 +218,16 @@ class ProfileRepository extends BaseRepository {
 			->where('user_id', '=', $id)
 			->pluck('id');
 //dd($profile);
+
+		return $profile;
+	}
+
+
+	public function getUserProfile($id)
+	{
+		$profile = DB::table('profiles')
+			->where('user_id', '=', $id)
+			->first();
 
 		return $profile;
 	}
