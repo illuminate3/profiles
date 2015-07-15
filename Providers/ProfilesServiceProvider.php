@@ -80,6 +80,7 @@ class ProfilesServiceProvider extends ServiceProvider
 	{
 		$app = $this->app;
 
+		$app->register('App\Modules\Profiles\Providers\ProfileEventServiceProvider');
 		$app->register('App\Modules\Profiles\Providers\RouteServiceProvider');
 	}
 

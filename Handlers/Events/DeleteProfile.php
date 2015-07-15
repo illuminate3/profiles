@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Modules\Profiles\Handlers\Events;
 
 use App\Modules\Profiles\Events\ProfileWasDeleted;
@@ -11,6 +12,7 @@ use App\Modules\Profiles\HttpRepositories\ProfileRepository;
 
 
 class DeleteProfile {
+
 
 	/**
 	 * Create the event handler.

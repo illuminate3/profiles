@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Modules\Profiles\Handlers\Events;
 
 use App\Modules\Profiles\Events\ProfileWasCreated;
@@ -11,6 +12,7 @@ use App\Modules\Profiles\HttpRepositories\ProfileRepository;
 
 
 class CreateProfile {
+
 
 	/**
 	 * Create the event handler.
