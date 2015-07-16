@@ -54,7 +54,7 @@ class ProfilesController extends ProfileController {
 		$this->profile_repo = $profile_repo;
 		$this->user = $user;
 // middleware
-// 		$this->middleware('auth');
+		$this->middleware('auth');
 // 		$this->middleware('admin', ['only' => 'destroy']);
 //		$this->middleware('ajax', ['only' => 'updateSeen']);
 	}
@@ -220,7 +220,7 @@ dd("store");
 //			->orderBy('profiles.last_name', 'ASC');
 //		$query = Profile::select('id', 'first_name', 'last_name', 'email_1', 'email_2')
 //			->orderBy('last_name', 'ASC');
-		$query = Profile::select('id', 'first_name', 'last_name', 'email_1', 'email_2')
+		$query = Profile::select('id', 'user_id', 'first_name', 'last_name', 'email_1', 'email_2')
 			->orderBy('profiles.last_name', 'ASC');
 //dd($query);
 
@@ -230,12 +230,14 @@ dd("store");
 			->addColumn(
 				'actions',
 				'
-					<a href="{{ URL::to(\'profiles/\' . $id . \'/\' ) }}" class="btn btn-info btn-sm" >
+					<a href="{{ URL::to(\'profiles/\' . $user_id . \'/\' ) }}" class="btn btn-info btn-sm" >
 						<span class="glyphicon glyphicon-search"></span>  {{ trans("kotoba::button.view") }}
 					</a>
-					<a href="{{ URL::to(\'profiles/\' . $id . \'/edit\' ) }}" class="btn btn-success btn-sm" >
+				@if (Auth::user()->can("manage_profiles"))
+					<a href="{{ URL::to(\'profiles/\' . $user_id . \'/edit\' ) }}" class="btn btn-success btn-sm" >
 						<span class="glyphicon glyphicon-pencil"></span>  {{ trans("kotoba::button.edit") }}
 					</a>
+				@endif
 				'
 				)
 

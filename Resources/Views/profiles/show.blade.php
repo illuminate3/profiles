@@ -146,7 +146,7 @@
 
 
 <hr>
-
+{{ $profile->user_id }}
 
 <div class="row">
 @if (Auth::user()->can('manage_profiles'))
@@ -180,7 +180,7 @@
 	</div>
 
 	<div class="col-sm-6">
-		<a href="/profiles/{{ $profile->user_id }}/edit" class="btn btn-default btn-block" title="{{ trans('kotoba::button.edit') }}">
+		<a href="/profiles/{{-- $profile->user_id --}}/edit" class="btn btn-default btn-block" title="{{ trans('kotoba::button.edit') }}">
 			<i class="fa fa-pencil fa-fw"></i>
 			{{ trans('kotoba::button.edit') }}
 		</a>
