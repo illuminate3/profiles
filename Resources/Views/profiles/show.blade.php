@@ -146,7 +146,7 @@
 
 
 <hr>
-{{ $profile->user_id }}
+
 
 <div class="row">
 @if (Auth::user()->can('manage_profiles'))
