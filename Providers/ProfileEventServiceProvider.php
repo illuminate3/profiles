@@ -51,9 +51,12 @@ class ProfileEventServiceProvider extends EventServiceProvider {
 
 		User::created(function ($user) {
 //dd($user);
-
 			\Event::fire(new ProfileWasCreated($user));
+		});
 
+		User::deleted(function ($user) {
+//dd($user);
+			\Event::fire(new ProfileWasDeleted($user));
 		});
 
 	}
