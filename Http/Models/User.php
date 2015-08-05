@@ -24,6 +24,12 @@ class User extends App\Modules\Kagi\Http\Models\User {
 
 
 // Relationships -----------------------------------------------------------
+
+// hasMany
+// BelongsTo
+// BelongsToMany
+
+
 	public function profile()
 	{
 		return $this->hasOne('App\Modules\Profiles\Http\Models\Profile');

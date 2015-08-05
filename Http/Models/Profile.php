@@ -55,6 +55,12 @@ class Profile extends Model {
 
 
 // Relationships -----------------------------------------------------------
+
+// hasMany
+// BelongsTo
+// BelongsToMany
+
+
 	public function user()
 	{
 		return $this->belongsTo('App\Modules\Kagi\Http\Models\User');

@@ -36,6 +36,7 @@ abstract class BaseRepository {
 		$this->getById($id)->delete();
 	}
 
+
 	/**
 	 * Get Model by id.
 	 *

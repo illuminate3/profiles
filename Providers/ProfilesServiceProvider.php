@@ -30,6 +30,7 @@ class ProfilesServiceProvider extends ServiceProvider
 		$this->registerProviders();
 	}
 
+
 	/**
 	 * Register the Menus module resource namespaces.
 	 *

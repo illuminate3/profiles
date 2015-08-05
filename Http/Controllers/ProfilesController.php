@@ -99,6 +99,7 @@ dd("store");
 		return redirect('user')->with('ok', trans('back/users.created'));
 	}
 
+
 	/**
 	 * Display the specified resource.
 	 *

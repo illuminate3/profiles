@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class CreateProfileUserTable extends Migration
 {
 	/**
@@ -21,6 +22,7 @@ class CreateProfileUserTable extends Migration
 			$table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migration.

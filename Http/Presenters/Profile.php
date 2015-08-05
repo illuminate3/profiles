@@ -5,6 +5,7 @@ use Laracasts\Presenter\Presenter;
 
 use DB;
 
+
 class Profile extends Presenter {
 
 //dd('loaded');
@@ -29,6 +30,7 @@ class Profile extends Presenter {
 	{
 		return ucwords($this->entity->first_name);
 	}
+
 
 	/**
 	 * Present the name
@@ -150,6 +152,7 @@ class Profile extends Presenter {
 		return trim($return, ',<br>');
 	}
 
+
 	/**
 	 * Present the sites
 	 *
@@ -206,6 +209,7 @@ class Profile extends Presenter {
 
 //		return trim($return, ',&nbsp;');
 	}
+
 
 	/**
 	 * Present the positions
