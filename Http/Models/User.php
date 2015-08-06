@@ -26,8 +26,8 @@ class User extends App\Modules\Kagi\Http\Models\User {
 // Relationships -----------------------------------------------------------
 
 // hasMany
-// BelongsTo
-// BelongsToMany
+// belongsTo
+// belongsToMany
 
 
 	public function profile()
