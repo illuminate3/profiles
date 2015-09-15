@@ -14,21 +14,6 @@ class ModuleSeeder extends Seeder {
 	{
 
 
-// Permissions -------------------------------------------------------------
-		$permissions = array(
-			[
-				'name'				=> 'Manage Profiles',
-				'slug'				=> 'manage_profiles',
-				'description'		=> 'Give permission to user to access the Profiles area.'
-			],
-		 );
-
-		if (Schema::hasTable('permissions'))
-		{
-			DB::table('permissions')->insert( $permissions );
-		}
-
-
 // Links -------------------------------------------------------------------
 		$link_names = array([
 			'menu_id'				=> 1, // admin menu
