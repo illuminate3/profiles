@@ -234,7 +234,7 @@ dd("store");
 					<a href="{{ URL::to(\'profiles/\' . $user_id . \'/\' ) }}" class="btn btn-info btn-sm" >
 						<span class="glyphicon glyphicon-search"></span>  {{ trans("kotoba::button.view") }}
 					</a>
-				@if (Auth::user()->can("manage_profiles"))
+				@if (Auth::user()->can("manage_profiles") || Auth::user()->can("manage_own"))
 					<a href="{{ URL::to(\'profiles/\' . $user_id . \'/edit\' ) }}" class="btn btn-success btn-sm" >
 						<span class="glyphicon glyphicon-pencil"></span>  {{ trans("kotoba::button.edit") }}
 					</a>
