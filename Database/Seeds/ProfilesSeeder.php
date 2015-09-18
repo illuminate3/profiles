@@ -8,7 +8,8 @@ use DB;
 use Schema;
 
 
-class ProfilesSeeder extends Seeder {
+class ProfilesSeeder extends Seeder
+{
 
 
 	public function run()
