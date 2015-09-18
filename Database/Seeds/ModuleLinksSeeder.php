@@ -7,13 +7,12 @@ Use DB;
 use Schema;
 
 
-class ModuleSeeder extends Seeder
+class ModuleLinksSeeder extends Seeder
 {
 
 
 	public function run()
 	{
-
 
 		$admin_id = DB::table('menus')
 			->where('name', '=', 'admin')
@@ -22,7 +21,6 @@ class ModuleSeeder extends Seeder
 		if ($admin_id == null) {
 			$admin_id = 1;
 		}
-
 
 // Links -------------------------------------------------------------------
 // profiles
