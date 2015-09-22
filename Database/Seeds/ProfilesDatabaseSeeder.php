@@ -19,9 +19,9 @@ class ProfilesDatabaseSeeder extends Seeder
 	{
 		Model::unguard();
 
-		$this->call('App\Modules\Profiles\Database\Seeds\ModulePermissionsSeeder');
-		$this->call('App\Modules\Profiles\Database\Seeds\ModuleLinksSeeder');
-		$this->call('App\Modules\Profiles\Database\Seeds\ProfilesTableSeeder');
+// 		$this->call('App\Modules\Profiles\Database\Seeds\ModulePermissionsSeeder');
+// 		$this->call('App\Modules\Profiles\Database\Seeds\ModuleLinksSeeder');
+// 		$this->call('App\Modules\Profiles\Database\Seeds\ProfilesTableSeeder');
 
 		$this->call('App\Modules\Profiles\Database\Seeds\ProfilesSeeder');
 

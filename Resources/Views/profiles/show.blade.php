@@ -29,19 +29,19 @@
 	</p>
 	<i class="fa fa-user fa-lg"></i>
 	@if ( !empty($profile->prefix ) )
-		{{{ $profile->prefix }}}&nbsp;
+		{{ $profile->prefix }}&nbsp;
 	@endif
 	@if ( !empty($profile->first_name ) )
-		{{{ $profile->first_name }}}
+		{{ $profile->first_name }}
 	@endif
 	@if ( !empty($profile->middle_initial ) )
-		&nbsp;{{{ $profile->middle_initial }}}
+		&nbsp;{{ $profile->middle_initial }}
 	@endif
 	@if ( !empty($profile->last_name ) )
-		&nbsp;{{{ $profile->last_name }}}
+		&nbsp;{{ $profile->last_name }}
 	@endif
 	@if ( !empty($profile->suffix ) )
-		&nbsp;{{{ $profile->suffix }}}
+		&nbsp;{{ $profile->suffix }}
 	@endif
 	<hr>
 </h1>
@@ -66,7 +66,7 @@
 				</strong>
 				<br>
 				@if ( !empty($profile->phone_1 ) )
-					{{{ $profile->phone_1 }}}
+					{{ $profile->phone_1 }}
 				@endif
 				<br>
 				<br>
@@ -75,7 +75,7 @@
 				</strong>
 				<br>
 				@if ( !empty($profile->phone_2 ) )
-					{{{ $profile->phone_2 }}}
+					{{ $profile->phone_2 }}
 				@endif
 				<br>
 				<br>
@@ -84,17 +84,17 @@
 				</strong>
 				<br>
 				@if ( !empty($profile->address ) )
-					{{{ $profile->address }}}
+					{{ $profile->address }}
 				@endif
 				<br>
 				@if ( !empty($profile->city ) )
-					{{{ $profile->city }}}
+					{{ $profile->city }}
 				@endif
 				@if ( !empty($profile->state ) )
-					,&nbsp;{{{ $profile->state }}}
+					,&nbsp;{{ $profile->state }}
 				@endif
 				@if ( !empty($profile->zipcode ) )
-					&nbsp;&nbsp;&nbsp;{{{ $profile->zipcode }}}
+					&nbsp;&nbsp;&nbsp;{{ $profile->zipcode }}
 				@endif
 			</div>
 			<div class="col-md-4">
@@ -103,7 +103,7 @@
 				</strong>
 				<br>
 				@if ( !empty($profile->email_1 ) )
-					{{{ $profile->email_1 }}}
+					<a href="mailto:{{ $profile->email_1 }}">{{ $profile->email_1 }}</a>
 				@endif
 				<br>
 				<br>
@@ -112,7 +112,7 @@
 				</strong>
 				<br>
 				@if ( !empty($profile->email_2 ) )
-					{{{ $profile->email_2 }}}
+					<a href="mailto:{{ $profile->email_1 }}">{{ $profile->email_2 }}</a>
 				@endif
 			</div>
 		</div>
@@ -139,7 +139,7 @@
 		</strong>
 		<br>
 		@if ( !empty($profile->notes ) )
-			{{{ $profile->notes }}}
+			{{ $profile->notes }}
 		@endif
 		<br>
 	</div><!-- ./panel-body -->
