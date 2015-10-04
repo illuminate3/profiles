@@ -7,7 +7,9 @@ Use DB;
 use Schema;
 
 
-class ModulePermissionsSeeder extends Seeder {
+class ModulePermissionsSeeder extends Seeder
+{
+
 
 	public function run()
 	{
@@ -26,8 +28,7 @@ class ModulePermissionsSeeder extends Seeder {
 			DB::table('permissions')->insert( $permissions );
 		}
 
-
-
 	} // run
+
 
 }

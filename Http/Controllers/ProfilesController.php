@@ -217,12 +217,28 @@ dd("store");
 	*/
 	public function data()
 	{
-//		$query = Profile::select(array('profiles.id','profiles.first_name','profiles.last_name','profiles.email_1','profiles.email_2'))
-//			->orderBy('profiles.last_name', 'ASC');
-//		$query = Profile::select('id', 'first_name', 'last_name', 'email_1', 'email_2')
-//			->orderBy('last_name', 'ASC');
-		$query = Profile::select('id', 'user_id', 'first_name', 'last_name', 'email_1', 'email_2')
+
+		$query = Profile::select(
+			'id',
+			'user_id',
+			'first_name',
+			'last_name',
+			'email_1',
+			'email_2'
+			)
 			->orderBy('profiles.last_name', 'ASC');
+/*
+		$query = Employee::join('profiles','employees.profile_id','=','profiles.id')
+			->join('sites','employees.site_id','=','sites.id')
+			->where('employees.status_id', '=', 1)
+			->select([
+				'employees.id',
+				'profiles.first_name',
+				'profiles.last_name',
+				'profiles.email_1',
+				'sites.name',
+				]);
+*/
 //dd($query);
 
 		return Datatables::of($query)
