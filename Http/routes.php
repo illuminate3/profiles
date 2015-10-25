@@ -20,10 +20,11 @@ Route::group(['prefix' => 'profiles'], function() {
 // Resources
 
 Route::resource('profiles', 'ProfilesController');
-	Route::delete('profiles/{id}', array(
-		'as'=>'profiles.destroy',
-		'uses'=>'ProfilesController@destroy'
-		));
+
+Route::delete('profiles/{id}', array(
+	'as'=>'profiles.destroy',
+	'uses'=>'ProfilesController@destroy'
+	));
 
 
 // API DATA
