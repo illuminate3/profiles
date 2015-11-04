@@ -146,6 +146,7 @@
 </div><!-- ./panel -->
 
 
+@if ( Module::exists('blog') )
 <hr>
 
 
@@ -166,10 +167,10 @@
 
 </div><!-- ./ panel body -->
 </div><!-- ./ panel panel-info -->
+@endif
 
 
 <hr>
-
 
 
 <div class="row">
