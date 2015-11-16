@@ -69,6 +69,9 @@ class ProfilesServiceProvider extends ServiceProvider
 			__DIR__ . '/../Resources/Views/' => public_path('themes/') . Theme::getActive() . '/views/modules/origami/',
 		], 'views');
 
+		$app = $this->app;
+
+		$app->register('App\Modules\Profiles\Providers\ProfileEventServiceProvider');
 	}
 
 
@@ -81,7 +84,6 @@ class ProfilesServiceProvider extends ServiceProvider
 	{
 		$app = $this->app;
 
-		$app->register('App\Modules\Profiles\Providers\ProfileEventServiceProvider');
 		$app->register('App\Modules\Profiles\Providers\RouteServiceProvider');
 	}
 
