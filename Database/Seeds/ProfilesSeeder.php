@@ -85,18 +85,19 @@ zipcode	9
 			$c['user_id']			= $line[0];
 
 			$c['first_name']		= $line[1];
-			$c['middle_initial']	= $line[2];
-			$c['last_name']			= $line[3];
+//			$c['middle_initial']	= $line[2];
+			$c['last_name']			= $line[2];
 
-			$c['email_1']			= $line[4];
-			$c['phone_1']			= $line[5];
+			$c['email_1']			= $line[3];
+			$c['phone_1']			= $line[4];
+			$c['phone_2']			= $line[5];
 
-			$c['address']			= $line[6];
-			$c['city']				= $line[7];
-			$c['state']				= $line[8];
-			$c['zipcode']			= $line[9];
-
-			$c['notes']				= $line[15];
+// 			$c['address']			= $line[6];
+// 			$c['city']				= $line[7];
+// 			$c['state']				= $line[8];
+// 			$c['zipcode']			= $line[9];
+//
+// 			$c['notes']				= $line[15];
 
 			DB::table('profiles')->insert($c);
 
