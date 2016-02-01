@@ -53,7 +53,7 @@ class ProfilesServiceProvider extends ServiceProvider
 		$this->publishes([
 			__DIR__ . '/../Config/profile.php' => config_path('profile.php'),
 			__DIR__ . '/../Resources/Assets/Images' => base_path('public/assets/images/'),
-			__DIR__ . '/../Resources/Views/' => public_path('themes/') . Theme::getActive() . '/views/modules/origami/',
+			__DIR__ . '/../Resources/Views/' => public_path('themes/') . Theme::getActive() . '/views/modules/profiles/',
 		]);
 
 
@@ -66,7 +66,7 @@ class ProfilesServiceProvider extends ServiceProvider
 		], 'images');
 
 		$this->publishes([
-			__DIR__ . '/../Resources/Views/' => public_path('themes/') . Theme::getActive() . '/views/modules/origami/',
+			__DIR__ . '/../Resources/Views/' => public_path('themes/') . Theme::getActive() . '/views/modules/profiles/',
 		], 'views');
 
 		$app = $this->app;
