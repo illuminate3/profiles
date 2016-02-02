@@ -146,7 +146,8 @@
 </div><!-- ./panel -->
 
 
-@if ( Module::exists('blog') )
+@if (Auth::user()->can('manage_shisan'))
+@if ( Module::exists('shisan') )
 <hr>
 
 
@@ -167,6 +168,7 @@
 
 </div><!-- ./ panel body -->
 </div><!-- ./ panel panel-info -->
+@endif
 @endif
 
 

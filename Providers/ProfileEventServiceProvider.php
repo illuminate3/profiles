@@ -49,10 +49,10 @@ class ProfileEventServiceProvider extends EventServiceProvider {
 	{
 		parent::boot($events);
 
-		User::created(function ($user) {
+// 		User::created(function ($user) {
 //dd($user);
-			\Event::fire(new ProfileWasCreated($user));
-		});
+// 			\Event::fire(new ProfileWasCreated($user));
+// 		});
 
 		User::deleted(function ($user) {
 //dd($user);
@@ -64,8 +64,8 @@ class ProfileEventServiceProvider extends EventServiceProvider {
 	public function register()
 	{
 
-		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$loader->alias('ProfileWasCreated', 'App\Modules\Profiles\Events\ProfileWasCreated');
+// 		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+// 		$loader->alias('ProfileWasCreated', 'App\Modules\Profiles\Events\ProfileWasCreated');
 
 		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		$loader->alias('ProfileWasDeleted', 'App\Modules\Profiles\Events\ProfileWasDeleted');
