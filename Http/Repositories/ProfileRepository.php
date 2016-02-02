@@ -170,6 +170,24 @@ class ProfileRepository extends BaseRepository {
 	}
 
 
+	public function createEmployeeProfile($data)
+	{
+//dd($data);
+
+		$check = $this->checkProfileExists($data->email_1);
+//dd($data);
+
+		if ($check != null) {
+			$profile = Profile::find($check->id);
+			$profile->update($data);
+		} else {
+			Flash::error( trans('kotoba::hr.error.employee_create') );
+			return redirect('employees');
+		}
+
+	}
+
+
 	/**
 	 * @param $data
 	 * @return static
