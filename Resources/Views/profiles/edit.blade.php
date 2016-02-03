@@ -22,10 +22,16 @@
 <div class="row">
 <h1>
 	<p class="pull-right">
-	<a href="/profiles" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
+	<a href="/profiles/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
 		<i class="fa fa-chevron-left fa-fw"></i>
 		{{ trans('kotoba::button.back') }}
 	</a>
+	@if ( Module::exists('shisan') )
+		<a href="/admin/employees/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
+			<i class="fa fa-chevron-left fa-fw"></i>
+			{{ trans('kotoba::general.back') }}&nbsp;{{ Lang::choice('kotoba::hr.employee', 1) }}
+		</a>
+	@endif
 	</p>
 	<i class="fa fa-esit fa-lg"></i>
 	{{ trans('kotoba::account.command.edit') }}
@@ -188,7 +194,7 @@
 
 <div class="row">
 <div class="col-sm-4">
-	<a href="/profiles" class="btn btn-default btn-block" title="{{ trans('kotoba::button.cancel') }}">
+	<a href="/profiles/{{ $profile->user_id }}" class="btn btn-default btn-block" title="{{ trans('kotoba::button.cancel') }}">
 		<i class="fa fa-times fa-fw"></i>
 		{{ trans('kotoba::button.cancel') }}
 	</a>
