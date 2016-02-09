@@ -44,6 +44,7 @@ class Profile extends Model {
 		'email_2',
 		'phone_1',
 		'phone_2',
+		'phone_extension',
 		'address',
 		'city',
 		'state',

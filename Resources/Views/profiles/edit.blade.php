@@ -115,6 +115,13 @@
 </div>
 </div>
 
+<div class="form-group">
+<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-phone-square fa-fw"></i></span>
+		<input type="text" id="phone_extension" name="phone_extension" value="{{ $profile->phone_extension }}" placeholder="{{ trans('kotoba::account.extension') }}" class="form-control">
+</div>
+</div>
+
 <hr>
 
 <div class="form-group">

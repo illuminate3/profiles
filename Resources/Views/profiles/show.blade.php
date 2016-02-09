@@ -80,6 +80,15 @@
 				<br>
 				<br>
 				<strong>
+					{{ trans('kotoba::account.extension') }}:
+				</strong>
+				<br>
+				@if ( !empty($profile->phone_extension ) )
+					{{ $profile->phone_extension }}
+				@endif
+				<br>
+				<br>
+				<strong>
 					{{ trans('kotoba::account.address') }}:
 				</strong>
 				<br>
@@ -112,7 +121,7 @@
 				</strong>
 				<br>
 				@if ( !empty($profile->email_2 ) )
-					<a href="mailto:{{ $profile->email_1 }}">{{ $profile->email_2 }}</a>
+					<a href="mailto:{{ $profile->email_2 }}">{{ $profile->email_2 }}</a>
 				@endif
 			</div>
 		</div>
