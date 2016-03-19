@@ -71,4 +71,15 @@ class Profile extends Model {
 // Functions ---------------------------------------------------------------
 
 
+	public function getFullNameAttribute()
+	{
+		return $this->first_name . " " . $this->last_name;
+	}
+
+	public function getFullEmailAttribute()
+	{
+		return $this->first_name . " " . $this->last_name . " :: " . $this->email_1;
+	}
+
+
 }
