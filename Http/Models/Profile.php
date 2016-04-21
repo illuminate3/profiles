@@ -73,12 +73,17 @@ class Profile extends Model {
 
 	public function getFullNameAttribute()
 	{
-		return $this->first_name . " " . $this->last_name;
+		return $this->first_name . '' . $this->last_name;
 	}
 
 	public function getFullEmailAttribute()
 	{
-		return $this->first_name . " " . $this->last_name . " :: " . $this->email_1;
+		return $this->first_name . ' ' . $this->last_name . ' :: ' . $this->email_1;
+	}
+
+	public function getBusinessNameAttribute()
+	{
+		return $this->last_name . ', ' . $this->first_name;
 	}
 
 

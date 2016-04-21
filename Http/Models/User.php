@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Modules\Kagi\Http\Models\User;
 
 
-class User extends App\Modules\Kagi\Http\Models\User {
+class User extends \App\Modules\Kagi\Http\Models\User {
 
 
 	/**
