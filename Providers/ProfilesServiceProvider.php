@@ -72,6 +72,10 @@ class ProfilesServiceProvider extends ServiceProvider
 		$app = $this->app;
 
 		$app->register('App\Modules\Profiles\Providers\ProfileEventServiceProvider');
+
+// Register Middleware
+// 		$kernel = $this->app->make('Illuminate\Contracts\Http\Kernel');
+// 		$kernel->pushMiddleware('App\Modules\Profiles\Http\Middleware\AuthenticateProfiles');
 	}
 
 
