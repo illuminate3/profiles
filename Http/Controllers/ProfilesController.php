@@ -55,7 +55,7 @@ class ProfilesController extends ProfileController {
 		$this->user = $user;
 // middleware
 		$this->middleware('auth');
-		$this->middleware('profiles');
+//		$this->middleware('profiles');
 // 		$this->middleware('admin', ['only' => 'destroy']);
 //		$this->middleware('ajax', ['only' => 'updateSeen']);
 	}
@@ -94,7 +94,7 @@ class ProfilesController extends ProfileController {
 		UserCreateRequest $request
 		)
 	{
-dd("store");
+//dd("store");
 		$this->user->store($request->all());
 
 		return redirect('user')->with('ok', trans('back/users.created'));

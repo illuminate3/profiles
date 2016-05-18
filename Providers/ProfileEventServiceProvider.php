@@ -16,6 +16,7 @@ use App\Modules\Kagi\Http\Models\User;
 
 use App;
 use Event;
+use Module;
 
 
 class ProfileEventServiceProvider extends EventServiceProvider {
@@ -49,26 +50,28 @@ class ProfileEventServiceProvider extends EventServiceProvider {
 	{
 		parent::boot($events);
 
-		User::created(function ($user) {
-//dd($user);
-			\Event::fire(new ProfileWasCreated($user));
-		});
+		if (Module::exists('yubin')) {
+			User::created(function ($user) {
+				\Event::fire(new ProfileWasCreated($user));
+			});
 
-		User::deleted(function ($user) {
-//dd($user);
-			\Event::fire(new ProfileWasDeleted($user));
-		});
+			User::deleted(function ($user) {
+				\Event::fire(new ProfileWasDeleted($user));
+			});
+		}
 
 	}
 
 	public function register()
 	{
 
-		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$loader->alias('ProfileWasCreated', 'App\Modules\Profiles\Events\ProfileWasCreated');
+		if (Module::exists('yubin')) {
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('ProfileWasCreated', 'App\Modules\Profiles\Events\ProfileWasCreated');
 
-		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$loader->alias('ProfileWasDeleted', 'App\Modules\Profiles\Events\ProfileWasDeleted');
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('ProfileWasDeleted', 'App\Modules\Profiles\Events\ProfileWasDeleted');
+		}
 
 	}
 
