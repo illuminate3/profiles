@@ -22,16 +22,23 @@
 <div class="row">
 <h1>
 	<p class="pull-right">
-	<a href="/profiles/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
-		<i class="fa fa-chevron-left fa-fw"></i>
-		{{ trans('kotoba::button.back') }}
-	</a>
-	@if ( Module::exists('shisan') )
-		<a href="/admin/employees/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
-			<i class="fa fa-chevron-left fa-fw"></i>
-			{{ trans('kotoba::general.back') }}&nbsp;{{ Lang::choice('kotoba::hr.employee', 1) }}
-		</a>
-	@endif
+		@if (Shinobi::can('manage_profiles'))
+			<a href="/profiles/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
+				<i class="fa fa-chevron-left fa-fw"></i>
+				{{ trans('kotoba::button.back') }}
+			</a>
+			@if ( Module::exists('shisan') )
+				<a href="/admin/employees/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
+					<i class="fa fa-chevron-left fa-fw"></i>
+					{{ trans('kotoba::general.back') }}&nbsp;{{ Lang::choice('kotoba::hr.employee', 1) }}
+				</a>
+			@endif
+		@else
+			<a href="/staff/dashobard/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
+				<i class="fa fa-chevron-left fa-fw"></i>
+				{{ trans('kotoba::button.back') }}
+			</a>
+		@endif
 	</p>
 	<i class="fa fa-esit fa-lg"></i>
 	{{ trans('kotoba::account.command.edit') }}
@@ -89,7 +96,11 @@
 <div class="form-group">
 <div class="input-group">
 	<span class="input-group-addon"><i class="fa fa-at fa-fw"></i></span>
+	@if (Shinobi::can('manage_profiles'))
 		<input type="text" id="email_1" name="email_1" value="{{ $profile->email_1 }}" placeholder="{{ trans('kotoba::account.email_1') }}" class="form-control">
+	@else
+		<input type="text" id="email_1" name="email_1" value="{{ $profile->email_1 }}" placeholder="{{ trans('kotoba::account.email_1') }}" class="form-control" disabled>
+	@endif
 </div>
 </div>
 <div class="form-group">
