@@ -207,7 +207,7 @@
 			{{ trans('kotoba::general.command.delete') }}
 		</a>
 	</div>
-@elseif (Auth::user()->can('manage_own'))
+@elseif (Auth::user()->id == $profile->id)
 	<div class="col-sm-6">
 		<a href="/profiles" class="btn btn-default btn-block" title="{{ trans('kotoba::button.back') }}">
 			<i class="fa fa-chevron-left fa-fw"></i>
