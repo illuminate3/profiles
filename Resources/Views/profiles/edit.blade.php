@@ -36,7 +36,7 @@
 				</a>
 			@endif
 		@else
-			<a href="/staff/dashobard/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
+			<a href="/staff/dashboard/{{ $profile->user_id }}" class="btn btn-default" title="{{ trans('kotoba::button.back') }}">
 				<i class="fa fa-chevron-left fa-fw"></i>
 				{{ trans('kotoba::button.back') }}
 			</a>
@@ -238,7 +238,7 @@
 @else
 <div class="row">
 <div class="col-sm-6">
-	<a href="/profiles/{{ $profile->user_id }}" class="btn btn-default btn-block" title="{{ trans('kotoba::button.cancel') }}">
+	<a href="/staff/dashboard/{{ $profile->user_id }}" class="btn btn-default btn-block" title="{{ trans('kotoba::button.cancel') }}">
 		<i class="fa fa-times fa-fw"></i>
 		{{ trans('kotoba::button.cancel') }}
 	</a>
