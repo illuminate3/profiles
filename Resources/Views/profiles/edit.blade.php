@@ -96,7 +96,7 @@
 <div class="form-group">
 <div class="input-group">
 	<span class="input-group-addon"><i class="fa fa-at fa-fw"></i></span>
-	@if (Shinobi::can('manage_profiles'))
+	@if ( Shinobi::can('manage_profiles') || $allow_user_edits == 'true' )
 		<input type="text" id="email_1" name="email_1" value="{{ $profile->email_1 }}" placeholder="{{ trans('kotoba::account.email_1') }}" class="form-control">
 	@else
 		<input type="text" id="email_1" name="email_1" value="{{ $profile->email_1 }}" placeholder="{{ trans('kotoba::account.email_1') }}" class="form-control" disabled>
@@ -165,12 +165,14 @@
 
 <hr>
 
-<div class="form-group">
-<div class="input-group">
-	<span class="input-group-addon"><i class="fa fa-pencil fa-fw"></i></span>
-		<input type="text" id="notes" name="notes" value="{{ $profile->notes }}" placeholder="{{ Lang::choice('kotoba::general.note', 2) }}" class="form-control">
-</div>
-</div>
+@if ( Shinobi::can('manage_profiles') )
+	<div class="form-group">
+	<div class="input-group">
+		<span class="input-group-addon"><i class="fa fa-pencil fa-fw"></i></span>
+			<input type="text" id="notes" name="notes" value="{{ $profile->notes }}" placeholder="{{ Lang::choice('kotoba::general.note', 2) }}" class="form-control">
+	</div>
+	</div>
+@endif
 
 
 {{--

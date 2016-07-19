@@ -15,6 +15,7 @@ use App\Modules\Profiles\Http\Requests\DeleteRequest;
 use Auth;
 use Datatables;
 use Flash;
+use Setting;
 use Theme;
 
 
@@ -145,6 +146,10 @@ class ProfilesController extends ProfileController {
 //dd("edit");
 			$profile = $this->profile_repo->edit($id);
 //dd($profile);
+
+		$allow_user_edits = Setting::get('allow_user_edits');
+//dd($allow_user_edits);
+
 			$modal_title = trans('kotoba::general.command.delete');
 			$modal_body = trans('kotoba::general.ask.delete');
 			$modal_route = 'profiles.destroy';
@@ -154,6 +159,7 @@ class ProfilesController extends ProfileController {
 			return View('profiles::profiles.edit',
 //				$this->profile_repo->edit($id),
 					compact(
+						'allow_user_edits',
 						'profile',
 						'modal_title',
 						'modal_body',
@@ -183,7 +189,8 @@ class ProfilesController extends ProfileController {
 //dd($request->password);
 		$this->profile_repo->update($request->all(), $id);
 		Flash::success( trans('kotoba::account.success.update') );
-		return redirect('profiles/' . $id);
+//		return redirect('profiles/' . $id);
+		return redirect('staff/dashboard/' . $id);
 	}
 
 
