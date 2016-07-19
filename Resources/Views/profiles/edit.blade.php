@@ -212,6 +212,7 @@
 
 <br>
 
+@if ( Shinobi::can('manage_profiles') )
 <div class="row">
 <div class="col-sm-4">
 	<a href="/profiles/{{ $profile->user_id }}" class="btn btn-default btn-block" title="{{ trans('kotoba::button.cancel') }}">
@@ -232,6 +233,21 @@
 	</a>
 </div>
 </div>
+@else
+<div class="row">
+<div class="col-sm-6">
+	<a href="/profiles/{{ $profile->user_id }}" class="btn btn-default btn-block" title="{{ trans('kotoba::button.cancel') }}">
+		<i class="fa fa-times fa-fw"></i>
+		{{ trans('kotoba::button.cancel') }}
+	</a>
+</div>
+
+<div class="col-sm-6">
+	<input class="btn btn-default btn-block" type="reset" value="{{ trans('kotoba::button.reset') }}">
+</div>
+</div>
+@endif
+
 
 
 {!! Form::close() !!}
