@@ -1,4 +1,4 @@
-@extends($theme_back)
+@extends($theme_front)
 
 
 {{-- Web site Title --}}
