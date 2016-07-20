@@ -19,6 +19,8 @@
 {{-- Content --}}
 @section('content')
 
+<div class="container-fluid padding-left-xl padding-right-xl">
+
 <div class="row">
 <h1>
 	<p class="pull-right">
@@ -239,6 +241,9 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	@include($activeTheme . '::' . '_partials.modal')
 </div>
+
+
+</div><!-- ./container -->
 
 
 @stop

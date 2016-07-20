@@ -68,6 +68,8 @@ oTable =
 {{-- Content --}}
 @section('content')
 
+<div class="container-fluid padding-left-xl padding-right-xl">
+
 <div class="row">
 <h1>
 	<p class="pull-right">
@@ -101,6 +103,9 @@ oTable =
 	<tbody></tbody>
 </table>
 </div>
+
+
+</div><!-- ./container -->
 
 
 @stop
