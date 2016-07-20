@@ -249,10 +249,8 @@ class ProfilesController extends ProfileController {
 */
 //dd($query);
 
-		return Datatables::of($query)
-//			->remove_column('id')
-
 if (Auth::user()->can('manage_profiles')) {
+		return Datatables::of($query)
 			->addColumn(
 				'actions',
 				'
@@ -264,7 +262,9 @@ if (Auth::user()->can('manage_profiles')) {
 					</a>
 				'
 				)
+			->make(true);
 } else {
+		return Datatables::of($query)
 			->addColumn(
 				'actions',
 				'
@@ -273,8 +273,8 @@ if (Auth::user()->can('manage_profiles')) {
 					</a>
 				'
 				)
-}
 			->make(true);
+}
 	}
 
 
