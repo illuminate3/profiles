@@ -110,25 +110,29 @@ class ProfilesController extends ProfileController {
 	 */
 	public function show($id)
 	{
-		$profile = $this->profile_repo->show($id);
-//		$profile = $this->profile->find($id);
-//dd($profile);
-		$modal_title = trans('kotoba::general.command.delete');
-		$modal_body = trans('kotoba::general.ask.delete');
-		$modal_route = 'profiles.destroy';
-		$modal_id = $id;
-		$model = '$profile';
 
-		return Theme::View('profiles::profiles.show',
-				compact(
-					'profile',
-					'modal_title',
-					'modal_body',
-					'modal_route',
-					'modal_id',
-					'model'
-			));
-//		return View('profiles::profiles.show',  $this->profile_repo->show($id));
+		if ( (Auth::id() == $id) || (Auth::user()->can('manage_admin')) || (Auth::user()->can('manage_profiles')) ) {
+
+			$profile = $this->profile_repo->show($id);
+
+			$modal_title = trans('kotoba::general.command.delete');
+			$modal_body = trans('kotoba::general.ask.delete');
+			$modal_route = 'profiles.destroy';
+			$modal_id = $id;
+			$model = '$profile';
+
+			return Theme::View('profiles::profiles.show',
+					compact(
+						'profile',
+						'modal_title',
+						'modal_body',
+						'modal_route',
+						'modal_id',
+						'model'
+				));
+		} else {
+			return redirect('directory');
+		}
 	}
 
 
