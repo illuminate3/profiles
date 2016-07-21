@@ -106,8 +106,9 @@ class ProfileRepository extends BaseRepository {
 
 		$user = User::find($profile->user_id);
 
-		$user->email = $input['email_1'];
-		$user->password = $input['email_1'];
+		$email = $input['email_1'];
+		$user->email = $email;
+		$user->password =  bcrypt($email);
 
 		$user->update();
 
