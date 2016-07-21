@@ -193,8 +193,14 @@ class ProfilesController extends ProfileController {
 //dd($request->password);
 		$this->profile_repo->update($request->all(), $id);
 		Flash::success( trans('kotoba::account.success.update') );
-//		return redirect('profiles/' . $id);
-		return redirect('staff/dashboard/' . $id);
+
+		if (Auth::user()->can('manage_admin')) {
+			return redirect('admin/employees');
+		} else {
+//			return redirect('profiles/' . $id);
+			return redirect('staff/dashboard/' . $id);
+		}
+
 	}
 
 
