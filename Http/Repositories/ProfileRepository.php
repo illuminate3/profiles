@@ -108,7 +108,7 @@ class ProfileRepository extends BaseRepository {
 
 		$email = $input['email_1'];
 		$user->email = $email;
-		$user->password =  bcrypt($email);
+		$user->password =  Hash::make($email);
 
 		$user->update();
 
