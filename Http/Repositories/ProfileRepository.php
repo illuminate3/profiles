@@ -161,6 +161,14 @@ class ProfileRepository extends BaseRepository {
 // 		$user->syncRoles($input['roles']);
 	}
 
+	public function updateProfileEmail($data)
+	{
+//dd($data->email);
+
+		$profile = Profile::find($data->id);
+		$profile->email_1 = $data->email;
+		$profile->update();
+	}
 
 // Functions ---------------------------------------------------------------
 

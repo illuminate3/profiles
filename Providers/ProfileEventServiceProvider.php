@@ -11,6 +11,8 @@ use App\Modules\Profiles\Events\ProfileWasCreated;
 use App\Modules\Profiles\Handlers\Events\CreateProfile;
 use App\Modules\Profiles\Events\ProfileWasDeleted;
 use App\Modules\Profiles\Handlers\Events\DeleteProfile;
+use App\Modules\Profiles\Events\ProfileWasUpdated;
+use App\Modules\Profiles\Handlers\Events\UpdateProfile;
 
 use App\Modules\Kagi\Http\Models\User;
 
@@ -37,6 +39,10 @@ class ProfileEventServiceProvider extends EventServiceProvider {
 			DeleteProfile::class,
 		],
 
+		ProfileWasUpdated::class => [
+			UpdateProfile::class,
+		],
+
 	];
 
 
@@ -59,6 +65,10 @@ class ProfileEventServiceProvider extends EventServiceProvider {
 				\Event::fire(new ProfileWasDeleted($user));
 			});
 		}
+
+		Event::listen('App\Modules\Profiles\Events\ProfileWasUpdated',
+			'App\Modules\Profiles\Handlers\Events\UpdateProfile');
+
 
 	}
 
